@@ -1,0 +1,65 @@
+<div class="container-fluid">
+    <h6>Enter the details of users below to register them</h6>
+    <div class="row">
+        <div class="col-sm-6" style="background-color:yellow;">
+            <br>
+            <label><h6>Name:</h6></label>
+            <input type="text" [(ngModel)] = "name" class="form-control" [ngStyle] = "{
+                'border-color': name == '' ? 'red' : '#70C770'
+            }">
+            <br>
+            <label><h6>Email:</h6></label>
+            <input type="text" [(ngModel)] = "email" class="form-control" [ngStyle] = "{
+                'border-color': email == '' ? 'red' : '#70C770'
+            }">
+            <br>
+            <label><h6>Contact:</h6></label>
+            <input type="text" [(ngModel)] = "phone" class="form-control" [ngStyle] = "{
+                'border-color': phone == '' ? 'red' : '#70C770'
+            }">
+            <br>
+            <label><h6>Location:</h6></label>
+            <input type="text" [(ngModel)] = "location" class="form-control" [ngStyle] = "{
+                'border-color': location == '' ? 'red' : '#70C770'
+            }">
+            <br>
+            <label><h6>Date of Birth:</h6></label>
+            <input type="date" [(ngModel)] = "dob" class="form-control" [ngStyle] = "{
+                'border-color': dob == '' ? 'red' : '#70C770'
+            }">
+            <br>
+            <button (click) = "addCustomer()" class = "btn btn-primary btn-sm">Submit</button>
+            <br>
+            <br>
+        </div>
+        <div class="col-sm-6">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>Location</th>
+                        <th>DOB</th>
+                    </tr>            
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let inf of infos">
+                        <td>{{ inf[0] | camelCase }}</td>
+                        <td>{{ inf[1] | lowercase }}</td>
+                        <td>{{ inf[2] }}</td>
+                        <td>{{ inf[3] | camelCase }}</td>
+                        <td>{{ inf[4] }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ name | camelCase }}</td>
+                        <td>{{ email | lowercase }}</td>
+                        <td>{{ phone }}</td>
+                        <td>{{ location | camelCase }}</td>
+                        <td>{{ dob }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
